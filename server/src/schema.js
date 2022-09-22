@@ -17,7 +17,6 @@ const typeDefs = gql`
         name: String!
         photo: String
     }
-
     type Query {
         "Array of track for"
         tracksForHome: [Track!]!
