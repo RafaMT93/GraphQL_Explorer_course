@@ -9,6 +9,10 @@ const typeDefs = gql`
         thumbnail: String!
         length: Int
         modulesCount: Int
+        description: String
+        numberOfViews: Int
+        "Complete Track of Array Modules"
+        modules: [Module!]!
     }
     
     "Author group"
@@ -17,9 +21,18 @@ const typeDefs = gql`
         name: String!
         photo: String
     }
+
+    "Module"
+    type Module {
+        id: ID!
+        title: String!
+        length: Int
+    }
+
     type Query {
         "Array of track for"
         tracksForHome: [Track!]!
+        track(id: ID!): Track
     }
 `;
 
