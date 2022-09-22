@@ -29,10 +29,22 @@ const typeDefs = gql`
         length: Int
     }
 
+    "Response track mutation"
+    type incrementTrackViewsResponse {
+        code: Int!
+        success: Boolean!
+        message: String!
+        track: Track
+    }
+
     type Query {
         "Array of track for"
         tracksForHome: [Track!]!
         track(id: ID!): Track
+    }
+
+    type Mutation {
+        incrementTrackViews(id: ID!): incrementTrackViewsResponse!
     }
 `;
 
