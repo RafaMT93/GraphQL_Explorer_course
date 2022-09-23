@@ -26,6 +26,8 @@ type Module {
     title: String!
     length: Int @deprecated(reason: "Use durationInSeconds")
     durationInSeconds: Int
+    content: String!
+    videoUrl: String!
 }
 
 "Response track mutation"
@@ -37,10 +39,9 @@ type incrementTrackViewsResponse {
 }
 
 type Query {
-    "Array of track for"
     tracksForHome: [Track!]!
-    "Unique track"
     track(id: ID!): Track
+    module(id: ID!): Module
 }
 
 type Mutation {

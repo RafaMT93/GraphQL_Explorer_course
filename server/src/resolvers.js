@@ -6,8 +6,13 @@ const resolvers = {
         track: async (_, {id}, {dataSources}) => {
             const track = await dataSources.trackAPI.getTrack(id);
             if(!track) throw new Error(`Not found Track for id ${id}`);
-            return track
+            return track;
         },
+        module: async (_, {id}, {dataSources}) => {
+            const module = await dataSources.trackAPI.module(id);
+            if(!module) throw new Error(`Not found Module for id ${id}`);
+            return module;
+        }
     },
 
     Mutation: {
