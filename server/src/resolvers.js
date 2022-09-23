@@ -3,8 +3,10 @@ const resolvers = {
         tracksForHome: (_, __, {dataSources}) => {
             return dataSources.trackAPI.getTracksForHome();
         },
-        track: (_, {id}, {dataSources}) => {
-            return track = dataSources.trackAPI.getTrack(id);
+        track: async (_, {id}, {dataSources}) => {
+            const track = await dataSources.trackAPI.getTrack(id);
+            if(!track) throw new Error(`Not found Track for id ${id}`);
+            return track
         },
     },
 
